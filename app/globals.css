@@ -4,6 +4,7 @@
 
 @import url("../styles/theme.css");
 
+@layer theme, base, clerk, components, utilities;
 body {
   font-family: "Inter", sans-serif;
 }
