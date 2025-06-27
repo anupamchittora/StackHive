@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import React from "react";
 import { Inter, Space_Grotesk } from "next/font/google";
 import type { Metadata } from "next";
+import { ThemeProvider } from "@/context/ThemeProvider";
 import {
   ClerkProvider,
   SignInButton,
@@ -54,10 +55,20 @@ export default function RootLayout({
         cssLayerName: 'clerk',
       }}
     >
-      <html lang="en">
-        <h1 className="h1-bold">H1-Bold</h1>
-        <body className={`${inter.variable} ${spaceGrotesk.variable}`}>{children}</body>
-      </html>
+       <html lang="en">
+      <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
+        <ClerkProvider
+          appearance={{
+            elements: {
+              formButtonPrimary: "primary-gradient",
+              footerActionLink: "primary-text-gradient hover:text-primary-500",
+            },
+          }}
+        >
+          <ThemeProvider>{children}</ThemeProvider>
+        </ClerkProvider>
+      </body>
+    </html>
     </ClerkProvider>
   )
 }
