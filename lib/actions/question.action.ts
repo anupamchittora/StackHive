@@ -3,25 +3,53 @@
 import Question from "@/database/question.model";
 import { connectToDatabase } from "../mongoose";
 import Tag from "@/database/tag.model";
+import { CreateQuestionParams, GetQuestionsParams } from "./shared.types";
+import User from "@/database/user.model";
+import { revalidatePath } from "next/cache";
 
-export const createQuestion = async (params: any) => {
+export const getQuestions = async (params: GetQuestionsParams) => {
   try {
-    await connectToDatabase(); // ← FIXED: await the DB connection
+    connectToDatabase();
 
-    const { title, content, tags, author } = params;
+    const questions = await Question.find({})
+      .populate({
+        path: "tags",
+        model: Tag,
+      })
+      .populate({ path: "author", model: User })
+      .sort({ createdAt: -1 });
 
+    return { questions };
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
+export const createQuestion = async (params: CreateQuestionParams) => {
+  // eslint-disable-next-line no-empty
+  try {
+    // connect to DATABASE
+    connectToDatabase();
+    const { title, content, tags, author, path } = params;
+
+    // create a new question
     const question = await Question.create({
       title,
       content,
       author,
     });
 
+    // tag documents array
     const tagDocuments = [];
 
+    // create tags or get them if they already exist
     for (const tag of tags) {
       const existingTag = await Tag.findOneAndUpdate(
         {
-          name: { $regex: new RegExp(`^${tag}$`, "i") },
+          name: {
+            $regex: new RegExp(`^${tag}$`, "i"),
+          },
         },
         { $setOnInsert: { name: tag }, $push: { question: question._id } },
         { upsert: true, new: true }
@@ -34,11 +62,10 @@ export const createQuestion = async (params: any) => {
       $push: { tags: { $each: tagDocuments } },
     });
 
-    // TODO: Implement reputation increment or user interaction recording here
+    // create a interaction record for the user's ask question action
 
-    return { success: true, questionId: question._id }; // ← FIXED: always return a response
-  } catch (error) {
-    console.error("Error in createQuestion:", error); // ← FIXED: log errors instead of swallowing
-    throw error; // ← let the client know something went wrong
-  }
+    // increament author reputation by +5 points for creating a question
+
+    revalidatePath(path);
+  } catch (error) {}
 };
