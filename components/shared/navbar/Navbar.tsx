@@ -26,7 +26,7 @@ const Navbar = () => {
         text-dark-100 dark:text-light-900
         max-sm:hidden"
         >
-          Dev <span className="text-primary-500">Overflow</span>
+          Stack<span className="text-primary-500">Hive</span>
         </p>
       </Link>
       <GlobalSearch />
