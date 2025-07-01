@@ -8,7 +8,7 @@
 [![GitHub commits](https://img.shields.io/github/commit-activity/t/ladunjexa/nextjs14-devoverflow?style=social&logo=github)](https://github.com/ladunjexa/nextjs14-devoverflow/commits)
 [![Pull requests](https://img.shields.io/github/issues-pr/ladunjexa/nextjs14-devoverflow?style=social&logo=github)](https://github.com/ladunjexa/nextjs14-devoverflow/pulls)
 
-![demo](https://i.ibb.co/x7FChRP/Thumbnail.jpg)
+![demo](https://ibb.co/0Sj1kBt)
 
 [![ladunjexa](https://custom-icon-badges.demolab.com/badge/made%20by%20-ladunjexa-556bf2?logo=github&logoColor=white&labelColor=101827)](https://github.com/luadnjexa)
 [![License](https://img.shields.io/github/license/ladunjexa/nextjs14-devoverflow?color=dddddd&labelColor=000000)](https://github.com/ladunjexa/nextjs14-devoverflow/blob/main/LICENSE)
@@ -21,16 +21,16 @@
 
 ## 🌐 Live Demo
 
-Explore the live demonstration of the project: [nextjs14-devoverflow](https://nextjs14-devoverflow.vercel.app/)
+Explore the live demonstration of the project: [StackHive](https://stackhive-iota.vercel.app/)
 
 ## 📝 Description
 
-**DevOverflow** is a complex Q&A platform for developers to ask questions, share knowledge, and learn from each other. It is built with Next.js, Tailwind CSS, Clerk, MongoDB, and more.
+**StackHive** is a complex Q&A platform for developers to ask questions, share knowledge, and learn from each other. It is built with Next.js, Tailwind CSS, Clerk, MongoDB, and more.
 
 <details><summary><b>Folder Structure</b></summary>
 
 ```bash
-nextjs14-devoverflow/
+Stackhive/
 ├── app/
 ├   ├── favicon.ico
 ├   ├── globals.css
@@ -221,7 +221,7 @@ nextjs14-devoverflow/
 
 ## ✨ Technologies Used
 
-<details><summary><b>DevOverflow</b> is built using the following technologies:</summary>
+<details><summary><b>StackHive</b> is built using the following technologies:</summary>
 
 - [TypeScript](https://www.typescriptlang.org/): TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
 - [Next.js](https://nextjs.org/): Next.js is a React framework for building server-side rendered and statically generated web applications.
@@ -359,13 +359,11 @@ The easiest way to deploy this Next.js app is to use the [Vercel Platform](https
 
 You can also deploy this Next.js app with [Netlify](https://www.netlify.com/).
 
-[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ladunjexa/nextjs14-devoverflow)
+[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/anupamchittora/StackHive)
 
 Check out [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 ## 🔧 Contributing
-
-[![contributors](https://contrib.rocks/image?repo=ladunjexa/nextjs14-devoverflow)](https://github.com/ladunjexa/nextjs14-devoverflow/graphs/contributors)
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -407,10 +405,9 @@ JSMastery. (2023). [Ultimate Next.js 14 Course | Become a top 1% Next.js 14 deve
 
 ## 📞 Contact Us
 
-[![Telegram](https://img.shields.io/badge/Telegram-@ladunjexa-2CA5E0?style=social&logo=telegram&logoColor=000000)](https://t.me/ladunjexa)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-ladunjexa-blue?style=flat&logo=linkedin&logoColor=b0c0c0&labelColor=363D44)](https://www.linkedin.com/in/lironabutbul)
-[![Instagram](https://img.shields.io/badge/Instagram-ladunjexa-grey?style=flat&logo=instagram&logoColor=b0c0c0&labelColor=8134af)](https://www.instagram.com/ladunjexa)
-[![Discord](https://img.shields.io/badge/Discord-ladunjexa-7289da?style=flat&logo=discord&logoColor=b0c0c0&labelColor=2c2f33)](https://discord.com/users/827996364331810816)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-ladunjexa-blue?style=flat&logo=linkedin&logoColor=b0c0c0&labelColor=363D44)](https://www.linkedin.com/in/anupamchittora)
+[![Instagram](https://img.shields.io/badge/Instagram-ladunjexa-grey?style=flat&logo=instagram&logoColor=b0c0c0&labelColor=8134af)](https://www.instagram.com/anupamchittora)
+[![Discord](https://img.shields.io/badge/Discord-ladunjexa-7289da?style=flat&logo=discord&logoColor=b0c0c0&labelColor=2c2f33)](https://discord.com/users/anupamchittora)
 
 <!-- [![Twitter](https://img.shields.io/twitter/follow/ladunjexa.svg?style=social)](https://twitter.com/intent/follow?screen_name=ladunjexa) -->
 
