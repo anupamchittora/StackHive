@@ -6,6 +6,7 @@ import { connectToDatabase } from "../mongoose";
 import {
   CreateUserParams,
   DeleteUserParams,
+  GetAllUsersParams,
   UpdateUserParams,
 } from "./shared.types";
 import { revalidatePath } from "next/cache";
@@ -44,7 +45,8 @@ export const updateUser = async (params: UpdateUserParams) => {
     connectToDatabase();
 
     const { clerkId, updateData, path } = params;
-    await User.findByIdAndUpdate({ clerkId }, updateData, {
+
+    await User.findOneAndUpdate({ clerkId }, updateData, {
       new: true,
     });
 
@@ -59,7 +61,7 @@ export const deleteUser = async (params: DeleteUserParams) => {
     connectToDatabase();
 
     const { clerkId } = params;
-    const user = await User.findByIdAndDelete({ clerkId });
+    const user = await User.findOneAndDelete({ clerkId });
     if (!user) {
       throw new Error("User not found");
     }
@@ -68,7 +70,10 @@ export const deleteUser = async (params: DeleteUserParams) => {
     // quesions,answers,comments etc
 
     // get user question ids
-    // const userQuestionIds = await Question.find({author: user._id, }).distinct("_id");
+
+    // const userQuestionIds = await Question.find({
+    //   author: user._id
+    // }).distinct('_id');
 
     // delete user Questions
     await Question.deleteMany({ author: user._id });
@@ -84,3 +89,31 @@ export const deleteUser = async (params: DeleteUserParams) => {
     throw error;
   }
 };
+
+export const getAllUsers = async (params: GetAllUsersParams) => {
+  try {
+    connectToDatabase();
+
+    // const { page = 1, pageSize = 20, filter, searchQuery } = params;
+
+    // get user by id
+    const users = await User.find({}).sort({ createdAt: -1 });
+
+    return { users };
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
+// export const getAllUsers = async (params: GetAllUsersParams) => {
+//   try {
+//     connectToDatabase();
+
+//     // get user by id
+
+//   } catch (error) {
+//     console.log(error);
+//     throw error;
+//   }
+// };
