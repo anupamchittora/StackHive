@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { useMemo } from "react";
 
 interface MetricProps {
   imgUrl: string;
   alt: string;
-  value: string | number;
+  value: number | string;
   title: string;
-  href?: string;
   textStyles?: string;
+  href?: string;
   isAuthor?: boolean;
 }
 
@@ -17,41 +17,43 @@ const Metric = ({
   alt,
   value,
   title,
-  href,
   textStyles,
+  href,
   isAuthor,
 }: MetricProps) => {
-  const metricContent = (
-    <>
-      <Image
-        src={imgUrl}
-        width={16}
-        height={16}
-        alt={alt}
-        className={`object-contain ${href ? "rounded-full" : ""}`}
-      />
-      <p className={`${textStyles} flex items-center gap-1`}>
-        {value}
-        <span
-          className={`small-regular line-clamp-1 ${
-            isAuthor ? "max-sm:hidden" : ""
-          }`}
-        >
-          {title}
-        </span>
-      </p>
-    </>
+  const MetricContent = useMemo(
+    () => (
+      <>
+        <Image
+          src={imgUrl}
+          alt={alt}
+          width={16}
+          height={16}
+          className={`object-contain ${href ? "rounded-full" : ""}`}
+        />
+        <p className={`${textStyles} flex-center gap-1`}>
+          <span className="leading-3">{value}</span>
+          <span
+            className={`small-regular line-clamp-1 leading-3 ${
+              isAuthor ? "max-sm:hidden" : ""
+            }`}>
+            {title}
+          </span>
+        </p>
+      </>
+    ),
+    [alt, href, imgUrl, isAuthor, textStyles, title, value]
   );
 
   if (href) {
     return (
       <Link href={href} className="flex-center gap-1">
-        {metricContent}
+        {MetricContent}
       </Link>
     );
   }
 
-  return <div className="flex-center flex-wrap gap-1">{metricContent}</div>;
+  return <div className="flex-center flex-wrap gap-1">{MetricContent}</div>;
 };
 
 export default Metric;

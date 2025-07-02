@@ -1,9 +1,13 @@
-import { SidebarLink } from "@/types";
+import { IThemes, SidebarLink } from "@/types";
 
-export const themes = [
+export const themes: IThemes[] = [
   { value: "light", label: "Light", icon: "/assets/icons/sun.svg" },
   { value: "dark", label: "Dark", icon: "/assets/icons/moon.svg" },
-  { value: "system", label: "System", icon: "/assets/icons/computer.svg" },
+  {
+    value: "system",
+    label: "System",
+    icon: "/assets/icons/computer.svg",
+  },
 ];
 
 export const sidebarLinks: SidebarLink[] = [
@@ -71,3 +75,5 @@ export const BADGE_CRITERIA = {
     GOLD: 100000,
   },
 };
+
+export const THEME_STORAGE_KEY = "theme";

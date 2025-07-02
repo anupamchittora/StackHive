@@ -1,5 +1,13 @@
 import { BADGE_CRITERIA } from "@/constants";
 
+export type ThemeName = "light" | "dark" | "system";
+
+export interface IThemes {
+  value: ThemeName;
+  label: string;
+  icon: string;
+}
+
 export interface SidebarLink {
   imgURL: string;
   route: string;
@@ -46,3 +54,8 @@ export interface BadgeCounts {
 }
 
 export type BadgeCriteriaType = keyof typeof BADGE_CRITERIA;
+
+export interface IFilterOptions {
+  name: string;
+  value: string;
+}
